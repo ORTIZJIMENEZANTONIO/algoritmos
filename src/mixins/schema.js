@@ -2,9 +2,18 @@ const joi = require('joi');
 
 
 const search = joi.object().keys({
-  array: joi.number().integer().required(), 
-  element: joi.number().integer().required(), 
-  algoithm: joi.string().required()
+  set: joi
+    .string()
+    .pattern(new RegExp('(^[[])(.+)(]$)') )
+    .required(), 
+  element: joi
+    .number()
+    .integer()
+    .required(), 
+  algorithm: joi
+    .string()
+    .max(10)
+    .required()
 })
 
 module.exports = {
