@@ -1,6 +1,6 @@
 const express = require('express');
-const app = express();
 const searchAlgorithm = require('./src/search-algorithms/search');
+const app = express();
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');

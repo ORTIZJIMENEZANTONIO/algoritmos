@@ -1,7 +1,7 @@
 const validator = require('../mixins/validator');
 
 /*  
-  This algorithms cointain explicit code to show functionality.
+  This algorithms contain explicit code to show functionality.
   Obviously we can use Array.prototype methods
  */
 
@@ -12,7 +12,6 @@ const  binarySearch = (arr, x) => {
   
   while (r >= l) {
       mid = l + Math.floor((r - l) / 2);
-      console.log( arr, r, mid, l )
       // If the element is present at the middle
       // itself
       if (arr[mid] == x)
@@ -44,11 +43,14 @@ const linearSerch = (arr, x) => {
 }
 
 const searchResult = ( set, element, algorithm ) => {
+  const setTest = Array(10000000).fill(1).map((el, index) => el * index );
+  console.time(algorithm);
   const result = algorithm == 'binary'
-    ? binarySearch( set, element )
+    ? binarySearch( setTest, element )
     : algorithm == 'linear'
-      ? linearSerch( set, element )
+      ? linearSerch( setTest, element )
       : -1;
+  console.timeEnd(algorithm);
   return result;
 }
 
